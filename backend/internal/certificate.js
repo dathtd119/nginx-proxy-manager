@@ -20,7 +20,12 @@ const { isArray }      = require('lodash');
 
 const letsencryptStaging = config.useLetsencryptStaging();
 const letsencryptConfig  = '/etc/letsencrypt.ini';
-const certbotCommand     = 'certbot';
+
+
+//This will help Android Private DNS usable
+const certbot_prefferedChains = '--preferred-chain="ISRG Root X1"';
+// const certbotCommand     = 'certbot';
+const certbotCommand     = 'certbot '+ certbot_prefferedChains;
 
 function omissions() {
 	return ['is_deleted'];
